@@ -2,8 +2,11 @@ using System;
 using System.Linq;
 class LCS
 {
-    public static void main(String[] args)
+    static String X1, Y1;
+    public static void Main(String[] args)
     {
+        X1 = "abcdxyz";
+        Y1 = "xyzabcd";
         Console.WriteLine("Jai Shree Ram");
         String X = "OldSite:GeeksforGeeks.org";
         String Y = "NewSite:GeeksQuiz.com";
@@ -11,9 +14,13 @@ class LCS
         int m = X.Length;
         int n = Y.Length;
 
-        Console.Write("Length of Longest Common"
+        Console.WriteLine("Length of Longest Common"
         + " Substring is " + LCSubStr(X, Y));
+
+        Console.Write("Length of Longest Common"
+        + " Substring is " + lcsRec(X1.Length, Y1.Length, 0));
     }
+
     static int LCSubStr(String a, String b)
     {
         int[,] lcs = new int[a.Length + 1, b.Length + 1];
@@ -35,5 +42,22 @@ class LCS
             }
 
         return result;
+    }
+    static int lcsRec(int i, int j, int count)
+    {
+
+        if (i == 0 || j == 0)
+        {
+            return count;
+        }
+
+        if (X1[i - 1] == Y1[j - 1])
+        {
+            count = lcsRec(i - 1, j - 1, count + 1);
+        }
+        // you still don't know the lower part solutions in top down, so need to recurse
+        count = Math.Max(count, Math.Max(lcsRec(i, j - 1, 0),
+                                         lcsRec(i - 1, j, 0)));
+        return count;
     }
 }
