@@ -3,7 +3,7 @@ using System.Linq;
 
 class LCSubSeq
 {
-    public static void main(String[] args)
+    public static void Main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
 
@@ -15,7 +15,8 @@ class LCSubSeq
         int m = X.Length;
         int n = Y.Length;
 
-        Console.Write("Length of LCS is" + " " + lcs(s1, s2));
+        Console.WriteLine("Length of LCS is" + " " + lcs(s1, s2));
+        Console.Write("Length of LCS is" + " " + lcsRec(X, Y, s1.Length, s2.Length));
     }
     static int lcs(String a, String b)
     {
@@ -34,5 +35,15 @@ class LCSubSeq
             }
 
         return table[a.Length, b.Length];
+    }
+    /* Returns length of LCS for X[0..m-1], Y[0..n-1] */
+    static int lcsRec(char[] X, char[] Y, int m, int n)
+    {
+        if (m == 0 || n == 0)
+            return 0;
+        if (X[m - 1] == Y[n - 1])
+            return 1 + lcsRec(X, Y, m - 1, n - 1);
+        else
+            return Math.Max(lcsRec(X, Y, m, n - 1), lcsRec(X, Y, m - 1, n));
     }
 }
