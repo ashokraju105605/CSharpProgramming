@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 class minDiffSubsets
 {
-    public static void main(String[] args)
+    public static void mxain(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         int[] arr = { 3, 1, 4, 2, 2, 1 };

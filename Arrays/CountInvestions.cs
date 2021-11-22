@@ -36,13 +36,15 @@ class countinversions
     {
         int[] copy = new int[right - left + 1];
         int i = left, j = mid + 1, k = 0, count = 0;
-        while (i < mid + 1 && j < right + 1)
+        while (!(i < mid + 1) && !(j < right + 1))
         {
-            if (arr[i] < arr[j])
+            int x = i < mid + 1 ? arr[i] : int.MaxValue;
+            int y = j < right + 1 ? arr[j] : int.MaxValue;
+            if (x < y)
             {
                 copy[k++] = arr[i++];
             }
-            else if (arr[i] > arr[j])
+            else if (x > y)
             {
                 count += mid + 1 - i;
                 copy[k++] = arr[j++];
@@ -52,23 +54,24 @@ class countinversions
                 copy[k++] = arr[i++];
             }
         }
-        if (i == mid + 1)
-        {
-            while (j < right + 1)
-            {
-                copy[k++] = arr[j++];
-            }
-        }
-        if (j == right + 1)
-        {
-            while (i < mid + 1)
-            {
-                copy[k++] = arr[i++];
-            }
-        }
+        // if (i == mid + 1)
+        // {
+        //     while (j < right + 1)
+        //     {
+        //         copy[k++] = arr[j++];
+        //     }
+        // }
+        // if (j == right + 1)
+        // {
+        //     while (i < mid + 1)
+        //     {
+        //         copy[k++] = arr[i++];
+        //     }
+        // }
 
-        for (int t = left, p = 0; t <= right; t++, p++)
-            arr[t] = copy[p];
+        // for (int t = left, p = 0; t <= right; t++, p++)
+        //     arr[t] = copy[p];
+        Array.Copy(copy, 0, arr, left, right - left + 1);
         return count;
     }
 }

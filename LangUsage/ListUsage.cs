@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections; // non-generic version of Data structures.
 class ListUsage
 {
-    public static void Main()
+    public static void main()
     {
         Console.WriteLine("Jai Shree Ram");
 
@@ -35,6 +35,7 @@ class ListUsage
         int[] arr = { 900, 940, 950, 1100, 1500, 1800 };
         int[] dep = { 910, 1200, 1120, 1130, 1900, 2000 };
         int count = 0, maxcount = 0;
+
         SortedList<int, char> sl = new SortedList<int, char>();
         foreach (int i in arr)
         {
@@ -69,3 +70,7 @@ class ListUsage
         }
     }
 }
+
+
+// documentation for collections generic -- Dictionary, SortedList, List, LinkedList, HashSet, Stack , Queue
+// https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-5.0

@@ -14,6 +14,8 @@ class SampleArrayOps
         int[] a2 = new int[4] { 1, 2, 3, 4 };
         int[] val = new int[] { 60, 100, 120 };
 
+        int[] temp = arr[2..5];
+
         Console.WriteLine(val.Length);
 
         Console.WriteLine(a2[3]);
@@ -21,6 +23,7 @@ class SampleArrayOps
         Array.Sort(arr);
 
         string[] animals = { "Cat", "Alligator", "Fox", "Donkey", "Bear", "Elephant", "Goat" };
+
         Array.Sort(animals, 0, 3); // Result: ["Alligator","Cat","Fox", "Donkey", "Bear", "Elephant", "Goat"]
         // sort 3 elements from 0.
 
@@ -33,6 +36,7 @@ class SampleArrayOps
             Console.Write(x + " ");
         }
 
+        //Array.Copy(arr, 0, a1, 1, arr.Length);
 
         // simple way to print array
         Console.WriteLine("[ {0} ]", string.Join(", ", arr));
@@ -130,3 +134,7 @@ class Box : IComparable<Box>
         return o.area - area;
     }
 }
+
+
+// Array, Math, Random , String, Tuple, Char, DateTime,  methods, properties and their usage in documentation below
+// https://docs.microsoft.com/en-us/dotnet/api/system.array?view=net-5.0

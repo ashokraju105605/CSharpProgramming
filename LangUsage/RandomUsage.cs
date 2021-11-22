@@ -17,6 +17,7 @@ class RandomUsage
 
         Console.WriteLine(rand.Next(100)); // returns rands till max parameter.
 
+        //Console.WriteLine(Math.Random()*5); -- doesn't exist.
 
     }
 }
