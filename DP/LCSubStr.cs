@@ -3,7 +3,7 @@ using System.Linq;
 class LCS
 {
     static String X1, Y1;
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         X1 = "abcdxyz";
         Y1 = "xyzabcd";
