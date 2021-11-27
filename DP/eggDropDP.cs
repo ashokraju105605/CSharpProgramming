@@ -1,9 +1,16 @@
 using System;
 class EggDrop
 {
+    static readonly int MAX = 1000;
+
+    static int[,] memo = new int[MAX, MAX];
     public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
+
+        for (int i = 0; i < memo.GetLength(0); i++)
+            for (int j = 0; j < memo.GetLength(1); j++)
+                memo[i, j] = -1;
 
         int n = 2, k = 36;
         Console.WriteLine("Minimum number of trials "
@@ -51,5 +58,34 @@ class EggDrop
             min = Math.Min(min, Math.Max(eggDropR(n - 1, x - 1), eggDropR(n, k - x)));
         }
         return min + 1; // forgot to add the one trial for the current number of floor.
+    }
+
+    static int EggDropMem(int n, int k)
+    {
+
+        if (memo[n, k] != -1)
+        {
+            return memo[n, k];
+        }
+
+        if (k == 1 || k == 0)
+            return k;
+
+        if (n == 1)
+            return k;
+
+        int min = int.MaxValue, x, res;
+
+        for (x = 1; x <= k; x++)
+        {
+            res = Math.Max(EggDropMem(n - 1, x - 1),
+                           EggDropMem(n, k - x));
+            if (res < min)
+                min = res;
+        }
+
+        memo[n, k] = min + 1;
+
+        return memo[n, k];
     }
 }
