@@ -1,7 +1,7 @@
 using System;
 class LongestPalindSubstr
 {
-    public static void Main(string[] args)
+    public static void main(string[] args)
     {
         string str = "forgeeksskeegfor";
         Console.WriteLine(str);
