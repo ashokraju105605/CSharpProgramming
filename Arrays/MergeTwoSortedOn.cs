@@ -1,13 +1,14 @@
 using System;
 class merge
 {
-    public static void main(String[] args)
+    public static void Main(String[] args)
     {
         int[] a1 = { 10, 27, 38, 43, 82 };
-        int[] a2 = { 3, 9 };
+        int[] a2 = { 3, 18 };
 
         merge m = new merge();
         m.mergesorted(a1, a2);
+        m.mergeSorted(a1, a2);
 
     }
     int nextgap(int x)
@@ -61,5 +62,32 @@ class merge
             Console.Write(x + " ");
         }
         return 0;
+    }
+    void mergeSorted(int[] a1, int[] a2)
+    {
+        if (a1.Length > a2.Length)
+        {
+            int[] temp = a1;
+            a1 = a2;
+            a2 = temp;
+        }
+        int i = 0, j = 0;
+        while (i < a1.Length && j < a2.Length)
+        {
+            if (a1[i] < a2[j])
+            {
+                i++;
+                continue;
+            }
+            else
+            {
+                int temp = a2[j];
+                a2[j] = a1[i];
+                a1[i] = temp;
+                i++; j++;
+            }
+        }
+        Array.Sort(a1);
+        Array.Sort(a2);
     }
 }

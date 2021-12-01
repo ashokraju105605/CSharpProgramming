@@ -1,7 +1,7 @@
 using System;
 class NumWaysCoinChange
 {
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
 
