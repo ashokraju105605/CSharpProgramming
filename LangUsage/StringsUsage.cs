@@ -90,4 +90,14 @@ class StringUsage
 
         Console.WriteLine(sb.ToString());
     }
+
+    // Function to reverse words
+    static char[] reverseWords(char []s)
+    {
+        string str = new String(s);
+        string[] splits = str.Split(' ');
+        Array.Reverse(splits);
+        string rev = string.Join(' ',splits);
+        return rev.ToCharArray();
+    }
 }
