@@ -9,6 +9,8 @@ class leftsmallrightgreat
         leftsmallrightgreat lsrg = new leftsmallrightgreat();
         lsrg.findNum1(arr);
         lsrg.findNum1(arr1);
+        lsrg.findNum(arr);
+        lsrg.findNum(arr1);
     }
 
     void findNum1(int[] a)

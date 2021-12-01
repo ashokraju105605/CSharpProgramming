@@ -1,7 +1,7 @@
 using System;
 class merge
 {
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         int[] a1 = { 10, 27, 38, 43, 82 };
         int[] a2 = { 3, 18 };
