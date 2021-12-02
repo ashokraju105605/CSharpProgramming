@@ -66,7 +66,7 @@ class LRUCache
     // in Java LinkedHashMap library API solves this directly.
     public void set(int k, int v)
     {
-        if (hm.ContainsKey(k))
+        if (hm.ContainsKey(k))  // if block total can place in a function called -- UpdateToFirst
         {
             // this case is same as get case, but need to update the value in the Node.
             Node temp = hm[k];
@@ -90,7 +90,7 @@ class LRUCache
         }
         else
         {
-            if (hm.Count < capacity)
+            if (hm.Count < capacity) // Total if block CreateAtFirst Function
             {
                 Node t = new Node(k, v);
                 hm.Add(k, t);
@@ -103,7 +103,7 @@ class LRUCache
             }
             else
             {
-                Node t = tail;
+                Node t = tail;   // this total block is RemoveAtLast Function
                 hm.Remove(t.k);
                 Node prev = t.l;
                 if (prev != null)
@@ -116,9 +116,9 @@ class LRUCache
                     // should not be the case , because the capacity is full. or capacity has to be 1 for this case.
                     head = null;
                 }
-                t.l = null;
+                t.l = null; // doesn't make any difference.
 
-                Node p = new Node(k, v);
+                Node p = new Node(k, v); // this total block is CreateAtFirst Function
                 p.r = head;
                 if (head != null)
                 {
@@ -137,7 +137,7 @@ class LRUCache
     }
     public int get(int k)
     {
-        if (hm.ContainsKey(k))
+        if (hm.ContainsKey(k)) // if block total can place in a function called -- UpdateToFirst
         {
             Node temp = hm[k];
             if (head != temp)
