@@ -20,7 +20,7 @@ class RottenOranges
             y = b;
         }
     }
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         int[,] v = { { 2, 1, 0, 2, 1 },
@@ -66,7 +66,7 @@ class RottenOranges
         while (q.Count != 0)
         {
             Ele e = q.Dequeue();
-            if (e.x != -1)
+            if (e.x != -1) // you can use count while loop here instead of tombstone method.
             {
                 for(int i=0;i<d.GetLength(0);i++)
                 {

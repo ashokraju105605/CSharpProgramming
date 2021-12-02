@@ -22,6 +22,7 @@ class SlidingWindowMax
 
         for (int i = 0; i < k; i++)
         {
+            // push new element till the first block in the order where it belongs
             while (deq.Count != 0 && deq.Last.Value < arr[i])
             {
                 deq.RemoveLast();
@@ -34,10 +35,11 @@ class SlidingWindowMax
         for (int i = k; i < arr.Length; i++)
         {
 
-
+            // remove outgoing element
             if (arr[i - k] == deq.First.Value)
                 deq.RemoveFirst();
-
+            
+            // push new element till the first block in the order where it belongs
             while (deq.Count != 0 && deq.Last.Value < arr[i])
             {
                 deq.RemoveLast();
