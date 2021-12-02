@@ -20,7 +20,7 @@ class RottenOranges
             y = b;
         }
     }
-    public static void main(String[] args)
+    public static void Main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         int[,] v = { { 2, 1, 0, 2, 1 },
@@ -61,35 +61,45 @@ class RottenOranges
 
         q.Enqueue(new Ele(-1, -1));
 
+        int[,] d = {{1,0},{0,1},{-1,0},{0,-1}};
+
         while (q.Count != 0)
         {
             Ele e = q.Dequeue();
             if (e.x != -1)
             {
-
-                if (isValid(e.x + 1, e.y, m))
+                for(int i=0;i<d.GetLength(0);i++)
                 {
-                    m[e.x + 1, e.y] = 2;
-                    q.Enqueue(new Ele(e.x + 1, e.y));
+                    if(isValid(e.x+d[i,0], e.y+d[i,1], m))
+                    {
+                        m[e.x+d[i,0], e.y+d[i,1]] = 2;
+                        q.Enqueue(new Ele(e.x+d[i,0], e.y+d[i,1]));
+                    }
                 }
 
-                if (isValid(e.x, e.y + 1, m))
-                {
-                    m[e.x, e.y + 1] = 2;
-                    q.Enqueue(new Ele(e.x, e.y + 1));
-                }
+                // if (isValid(e.x + 1, e.y, m))
+                // {
+                //     m[e.x + 1, e.y] = 2;
+                //     q.Enqueue(new Ele(e.x + 1, e.y));
+                // }
 
-                if (isValid(e.x - 1, e.y, m))
-                {
-                    m[e.x - 1, e.y] = 2;
-                    q.Enqueue(new Ele(e.x - 1, e.y));
-                }
+                // if (isValid(e.x, e.y + 1, m))
+                // {
+                //     m[e.x, e.y + 1] = 2;
+                //     q.Enqueue(new Ele(e.x, e.y + 1));
+                // }
 
-                if (isValid(e.x, e.y - 1, m))
-                {
-                    m[e.x, e.y - 1] = 2;
-                    q.Enqueue(new Ele(e.x, e.y - 1));
-                }
+                // if (isValid(e.x - 1, e.y, m))
+                // {
+                //     m[e.x - 1, e.y] = 2;
+                //     q.Enqueue(new Ele(e.x - 1, e.y));
+                // }
+
+                // if (isValid(e.x, e.y - 1, m))
+                // {
+                //     m[e.x, e.y - 1] = 2;
+                //     q.Enqueue(new Ele(e.x, e.y - 1));
+                // }
             }
             else
             {
