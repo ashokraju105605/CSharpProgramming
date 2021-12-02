@@ -15,6 +15,9 @@ class SlidingWindowMax
         int[] arr3 = { 8, 5, 10, 7, 9, 4, 15, 12, 90, 13 };
         printMax(arr3, 4);
     }
+
+    // you only need to worry about next element after current highest goes out of window, 
+    // so only need to track elements in left to right highvalue to lowvalue funnel model
     public static void printMax(int[] arr, int k)
     {
 
