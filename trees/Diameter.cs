@@ -17,7 +17,7 @@ class Diameter
 
         return (node);
     }
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         int result = 0;
         Console.WriteLine("Jai Shree Ram");

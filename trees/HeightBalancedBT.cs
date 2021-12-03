@@ -50,6 +50,15 @@ class HeightBalancedBT
         {
             Console.WriteLine("Tree is not balanced");
         }
+
+        if (tree.isBal(tree.root).Item1)
+        {
+            Console.WriteLine("Tree is balanced");
+        }
+        else
+        {
+            Console.WriteLine("Tree is not balanced");
+        }
     }
     public bool isBalanced(Node r, Height h)
     {
@@ -82,6 +91,19 @@ class HeightBalancedBT
         else
         {
             return lb && rb; // wrote a wrong case of static true;
+        }
+    }
+    public Tuple<bool,int> isBal(Node r)
+    {
+        if(r==null)
+            return Tuple.Create(true,0);
+        else{
+            Tuple<bool,int> t1 = isBal(r.left);
+            Tuple<bool,int> t2 = isBal(r.right);
+            if(t1.Item1 && t2.Item1 && Math.Abs(t1.Item2-t2.Item2)<=1)
+                return Tuple.Create(true,Math.Max(t1.Item2,t2.Item2)+1);
+            else
+                return Tuple.Create(false,Math.Max(t1.Item2,t2.Item2));
         }
     }
 }
