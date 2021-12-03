@@ -7,6 +7,7 @@ class Diameter
         public int data;
         public Node left, right;
     }
+    static int res;
     static Node newNode(int data)
     {
         Node node = new Node();
@@ -16,7 +17,7 @@ class Diameter
 
         return (node);
     }
-    public static void main(String[] args)
+    public static void Main(String[] args)
     {
         int result = 0;
         Console.WriteLine("Jai Shree Ram");
@@ -26,8 +27,11 @@ class Diameter
         root.left.left = newNode(4);
         root.left.right = newNode(5);
 
-        diameter(root, ref result);
+        int h = diameter(root, ref result);
         Console.WriteLine("Diameter is " + result);
+
+        Tuple<int> t = Dia(root);
+        Console.WriteLine("Diameter is " + res);
     }
     public static int diameter(Node r, ref int res)
     {
@@ -43,5 +47,19 @@ class Diameter
             return 1 + Math.Max(left, right);
         }
         //return -1;
+    }
+    public static Tuple<int> Dia(Node r)
+    {
+        if(r==null)
+            return Tuple.Create(0);
+        else
+        {
+            Tuple<int> t, t1;
+
+                t = Dia(r.left);
+                t1 = Dia(r.right);
+            res = Math.Max(t.Item1+t1.Item1+1,res);
+            return Tuple.Create(Math.Max(t.Item1,t1.Item1)+1);
+        }
     }
 }
