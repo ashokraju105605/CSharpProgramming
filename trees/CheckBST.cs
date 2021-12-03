@@ -50,7 +50,7 @@ class CheckBST
         return true;
     }
 
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         CheckBST tree = new CheckBST();
         tree.root = new Node(4);

@@ -68,18 +68,17 @@ class LCA
         }
 
         // If both n1 and n2 are smaller than root, then LCA lies in left  
-        if (node.data > n1 && node.data > n2)
+        if (/*node.data > n1 && */node.data > Math.Max(n1,n2)) // you can use code in comments if you don't to order of n1,n2.
         {
             return lca1(node.left, n1, n2);
         }
-
         // If both n1 and n2 are greater than root, then LCA lies in right  
-        if (node.data < n1 && node.data < n2)
+        else if (node.data < Math.Min(n1,n2))// && node.data < n2)
         {
             return lca1(node.right, n1, n2);
         }
-
-        return node;
+        else
+            return node;
 
         //iterative implementation can be done in this same fashion with a while loop
     }
