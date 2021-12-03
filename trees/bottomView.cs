@@ -38,6 +38,9 @@ class bottomView
 
         tree.botView();
     }
+    // you don't need to pass level param if using bfs, as it is level order traversal
+    // higher levels after lower levels
+    // and hd is soted in the node itself so no need to pass as param.
     public void botView()
     {
         Queue<Node> q = new Queue<Node>();
