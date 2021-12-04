@@ -1,7 +1,7 @@
 using System;
 class printmaxAs
 {
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         int[] dp = new int[25];
         Array.Fill(dp, -1);
