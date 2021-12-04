@@ -32,7 +32,7 @@ class FloodFill
     }
     static void floodfillutil(int[,] mat, int x, int y, int oldC, int newC)
     {
-        if (mat[x, y] == newC || mat[x, y] != oldC)
+        if (mat[x, y] != oldC)
             return;
         mat[x, y] = newC;
         if (x - 1 >= 0) floodfillutil(mat, x - 1, y, oldC, newC);
@@ -46,5 +46,6 @@ class FloodFill
 /** 
 you can also use the bfs to do the same flood filling.
 which is being done here using stack recursion.
-remember for DFS , you mark node and put it in the queue.
+remember for BFS , you mark node and put it in the QUEUE.
+for DFS, you go to recursion, in the method mark and explore.
 */
