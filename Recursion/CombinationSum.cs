@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 class CombinationSum
 {
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
 
