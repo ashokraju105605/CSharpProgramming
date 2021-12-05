@@ -14,7 +14,13 @@ class dijkstra
                                 { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
                                 { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
                                 { 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
+
+        // dijkstra algo is very similar to prim's algo in approach.
         shortestpaths(graph, 0);
+
+        //https://www.javatpoint.com/graph-theory-graph-representations
+        // adjacency matrix can generally represent undirected graph
+        // incidence graph and adjacency list can represent directed graph.
     }
     static void shortestpaths(int[,] g, int s)
     {
