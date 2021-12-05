@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 class LongestConsecuritveSubSeq
 {
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         int[] arr = new int[] { 1, 9, 3, 10, 4, 20, 2 };
