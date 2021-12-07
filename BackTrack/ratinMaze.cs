@@ -17,10 +17,13 @@ class ratinMaze
     }
     static void printPath(int[,] m)
     {
-        int i = 0, j = 0;
+        //int i = 0, j = 0;
         bool[,] vis = new bool[m.GetLength(0), m.GetLength(1)];
 
-        pathutil(m, i, j, vis);
+        if (m[0, 0] == 0 || m[m.GetLength(0) - 1, m.GetLength(1) - 1] == 0)
+            return;
+
+        pathutil(m, 0, 0, vis);
 
         // Print all possible paths
         for (int t = 0; t < possiblePaths.Count; t++)
@@ -28,46 +31,22 @@ class ratinMaze
     }
     static void pathutil(int[,] m, int i, int j, bool[,] vis)
     {
-        if (i == -1 || i == m.GetLength(0) || j == -1 ||
-            j == m.GetLength(1) || vis[i, j] ||
-                        m[i, j] == 0)
-            return;
 
         if (i == m.GetLength(0) - 1 && j == m.GetLength(1) - 1)
             possiblePaths.Add(path);
 
+        var direc = new List<(int, int, string)> { (-1, 0, "U"), (0, -1, "L"), (1, 0, "D"), (0, 1, "R") };
+
         vis[i, j] = true;
 
-        if (isSafe(i + 1, j, m, vis))
+        foreach (var d in direc)
         {
-            path = path + "D";
-            pathutil(m, i + 1, j, vis);
-            path = path.Substring(0, path.Length - 1); // backtrack for the next direction to work
-
-        }
-
-        if (isSafe(i, j + 1, m, vis))
-        {
-            path = path + "R";
-            pathutil(m, i, j + 1, vis);
-            path = path.Substring(0, path.Length - 1);
-
-        }
-
-        if (isSafe(i - 1, j, m, vis))
-        {
-            path = path + "U";
-            pathutil(m, i - 1, j, vis);
-            path = path.Substring(0, path.Length - 1);
-
-        }
-
-        if (isSafe(i, j - 1, m, vis))
-        {
-            path = path + "L";
-            pathutil(m, i, j - 1, vis);
-            path = path.Substring(0, path.Length - 1);
-
+            if (isSafe(i + d.Item1, j + d.Item2, m, vis))
+            {
+                path = path + d.Item3;
+                pathutil(m, i + d.Item1, j + d.Item2, vis);
+                path = path.Substring(0, path.Length - 1);
+            }
         }
 
         vis[i, j] = false; // backtrack for the next iternation of node traversal.

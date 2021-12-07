@@ -4,7 +4,7 @@ class CountIslands
 {
     static int[,] dir = new int[,]{{-1,-1},{-1,0},{-1,1},{0,-1},
                                  {0,1},{1,-1},{1,0},{1,1}};
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         int[,] M = new int[,] { { 1, 1, 0, 0, 0 },
                                   { 0, 1, 0, 0, 1 },

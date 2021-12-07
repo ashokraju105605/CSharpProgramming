@@ -43,6 +43,8 @@ class dijkstra
             }
         }
     }
+    // you can use priority queue for O(log n) retrieval of min node.
+    // so more like a BFS like situation in finding the dist to nodes using queue and picking shortest.
     static int getminNode(bool[] vis, int[] dist)
     {
         int min = int.MaxValue;

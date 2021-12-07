@@ -9,7 +9,7 @@ class Nqueens
     static void Nqueen(int n)
     {
         int[,] mat = new int[n, n];
-
+        // doesn't matter, default values are zeros.
         for (int i = 0; i < mat.GetLength(0); i++)
             for (int j = 0; j < mat.GetLength(1); j++)
             {

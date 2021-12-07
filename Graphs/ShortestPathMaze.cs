@@ -45,7 +45,7 @@ class shortestpaths
         // sanity for source and dest nodes to be valid
         if (mat[s.x, s.y] != 1 || mat[d.x, d.y] != 1)
             return -1;
-
+        // priority queue not needed here, because distances only get increment by +1, and always low distances gets completed processing first.
         Queue<qNode> q = new Queue<qNode>();
 
         bool[,] vis = new bool[mat.GetLength(0), mat.GetLength(1)];
