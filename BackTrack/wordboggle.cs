@@ -1,6 +1,8 @@
 using System;
 class boggle
 {
+    static int[,] dir = new int[,]{{-1,-1},{-1,0},{-1,1},{0,-1},
+                                 {0,1},{1,-1},{1,0},{1,1}};
     class TrieNode
     {
         public bool leaf;
@@ -9,8 +11,6 @@ class boggle
         {
             leaf = false;
             child = new TrieNode[26];
-            for (int i = 0; i < 26; i++)
-                child[i] = null;
         }
     }
     static void insert(TrieNode root, String s)
@@ -35,7 +35,7 @@ class boggle
         int N = visited.GetLength(1);
         return (i >= 0 && i < M && j >= 0 && j < N && !visited[i, j]);
     }
-    public static void main(String[] args)
+    public static void Main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         // Let the given dictionary be following
@@ -68,7 +68,7 @@ class boggle
                     // for all the boggle intial searches coming from here, vis is always totally false.
                     searchWord(b, i, j, vis, s, r.child[index]);
                 }
-                s = "";
+                s = ""; // s reset for every node in boggle and also the root of trie.
             }
     }
     // think in your own way, and solve it accordingly, it will work.
@@ -77,38 +77,17 @@ class boggle
     {
         if (r.leaf == true)
             Console.WriteLine(s + b[i, j]);
-        //if (isSafe(i, j, vis)) // you don't necessarily need this check as the checks are done before making the call and at trie root level, the vis will always be all false.
-        //{
+
         TrieNode ch = r.child[b[i, j] - 'A'];
         vis[i, j] = true;
+        // safety check ensures indices are within aray bounds.
+        for (int k = 0; k < dir.GetLength(0); k++)
+        {
+            if (isSafe(i + dir[k, 0], j + dir[k, 1], vis) && r.child[b[i + dir[k, 0], j + dir[k, 1]] - 'A'] != null)
+                searchWord(b, i + dir[k, 0], j + dir[k, 1], vis, s + b[i, j], r.child[b[i + dir[k, 0], j + dir[k, 1]] - 'A']);
+        }
 
-        if (isSafe(i + 1, j + 1, vis) && r.child[b[i + 1, j + 1] - 'A'] != null)
-            searchWord(b, i + 1, j + 1, vis, s + b[i, j], r.child[b[i + 1, j + 1] - 'A']);
-
-        if (isSafe(i, j + 1, vis) && r.child[b[i, j + 1] - 'A'] != null)
-            searchWord(b, i, j + 1, vis, s + b[i, j], r.child[b[i, j + 1] - 'A']);
-
-        if (isSafe(i - 1, j + 1, vis) && r.child[b[i - 1, j + 1] - 'A'] != null)
-            searchWord(b, i - 1, j + 1, vis, s + b[i, j], r.child[b[i - 1, j + 1] - 'A']);
-
-        if (isSafe(i + 1, j, vis) && r.child[b[i + 1, j] - 'A'] != null)
-            searchWord(b, i + 1, j, vis, s + b[i, j], r.child[b[i + 1, j] - 'A']);
-
-        if (isSafe(i + 1, j - 1, vis) && r.child[b[i + 1, j - 1] - 'A'] != null)
-            searchWord(b, i + 1, j - 1, vis, s + b[i, j], r.child[b[i + 1, j - 1] - 'A']);
-
-        if (isSafe(i, j - 1, vis) && r.child[b[i, j - 1] - 'A'] != null)
-            searchWord(b, i, j - 1, vis, s + b[i, j], r.child[b[i, j - 1] - 'A']);
-
-        if (isSafe(i - 1, j - 1, vis) && r.child[b[i - 1, j - 1] - 'A'] != null)
-            searchWord(b, i - 1, j - 1, vis, s + b[i, j], r.child[b[i - 1, j - 1] - 'A']);
-
-        if (isSafe(i - 1, j, vis) && r.child[b[i - 1, j] - 'A'] != null)
-            searchWord(b, i - 1, j, vis, s + b[i, j], r.child[b[i - 1, j] - 'A']);
-
-
-        vis[i, j] = false;
-        //}
+        vis[i, j] = false; // visited reset after work done.
 
     }
 }
