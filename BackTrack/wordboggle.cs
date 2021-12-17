@@ -35,7 +35,7 @@ class boggle
         int N = visited.GetLength(1);
         return (i >= 0 && i < M && j >= 0 && j < N && !visited[i, j]);
     }
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         // Let the given dictionary be following
