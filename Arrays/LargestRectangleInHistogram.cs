@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 public class LargestRectangleInHistogram
 {
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram -- LRIH");
         int[] a = { 6, 7, 5, 2, 4, 5, 9, 3 };
