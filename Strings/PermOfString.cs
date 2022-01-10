@@ -26,9 +26,7 @@ class permstring
     string swap(string s, int i, int j)
     {
         char[] copy = s.ToCharArray();
-        char t = copy[i];
-        copy[i] = copy[j];
-        copy[j] = t;
+        (copy[i], copy[j]) = (copy[j], copy[i]);
         string c = new string(copy);
         return c;
     }
