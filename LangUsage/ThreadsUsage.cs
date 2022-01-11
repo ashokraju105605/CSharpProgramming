@@ -57,7 +57,7 @@ class Threadusage
         //newThread.Join(2000);
         // Abort newThread.
         Console.WriteLine("Main aborting new thread.");
-        newThread.Abort("Information from Main."); //old way not supported in .net 5.0
+        //newThread.Abort("Information from Main."); //old way not supported in .net 5.0
         // runtime exception -- thread abort is not supported on this platform.
 
         // Wait for the thread to terminate.
