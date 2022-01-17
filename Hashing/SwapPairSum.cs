@@ -13,9 +13,9 @@ class SwapPairSum
     }
     static void printSwapValue(int[] a, int[] b)
     {
-        HashSet<int> hs = new HashSet<int>();
-        foreach (int x in a)
-            hs.Add(x);
+        HashSet<int> hs = new HashSet<int>(a);
+        // foreach (int x in a)
+        //     hs.Add(x);
 
         int sum1 = a.Sum();
         int sum2 = b.Sum();
