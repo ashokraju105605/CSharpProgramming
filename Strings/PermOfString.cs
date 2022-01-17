@@ -27,7 +27,6 @@ class permstring
     {
         char[] copy = s.ToCharArray();
         (copy[i], copy[j]) = (copy[j], copy[i]);
-        string c = new string(copy);
-        return c;
+        return new string(copy);
     }
 }
