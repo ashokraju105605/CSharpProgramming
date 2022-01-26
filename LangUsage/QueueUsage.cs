@@ -20,6 +20,8 @@ class QueueUsage
 
         Console.WriteLine(q.Peek());
 
+        int[] a = q.ToArray();
+
         Queue qt = new Queue();
         qt.Enqueue(1);
         qt.Enqueue("ashok");

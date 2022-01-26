@@ -43,8 +43,13 @@ class DictionaryUsage
 
         Console.WriteLine(hm.Count);
 
-        // sorted dict keeps the kvp's sorted on keys.
+        // sorted dict keeps the kvp's sorted on keys. SortedDictionary is only in Generic namespace
         SortedDictionary<int, int> map = new SortedDictionary<int, int>();
+
+        // SortedList is in both generic and non-generic collections, 
+        // it also sorts keys in ascending order similar to SortedDictionary.
+        SortedList<int, int> sl = new SortedList<int, int>(); // Generic Namespace
+        SortedList sl1 = new SortedList();  // non-generic collection namespace.
 
         // non-generic implementation.
         Hashtable ht = new Hashtable();

@@ -87,6 +87,7 @@ class SampleArrayOps
 
         bool[] visited = Enumerable.Repeat(false, 5).ToArray();
 
+        // initialize array with defaults. standard way.
         bool[] vis = new bool[5];
         Array.Fill(vis, false);
 

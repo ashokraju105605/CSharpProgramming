@@ -14,6 +14,8 @@ class StackUsage
         Console.WriteLine(s.Contains(1));
         Console.WriteLine(s.Count);
 
+        int[] a = s.ToArray();
+
         Stack st = new Stack();
         st.Push(1);
         st.Push("ashok");
