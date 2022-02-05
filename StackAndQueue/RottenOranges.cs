@@ -61,45 +61,21 @@ class RottenOranges
 
         q.Enqueue(new Ele(-1, -1));
 
-        int[,] d = {{1,0},{0,1},{-1,0},{0,-1}};
+        int[,] d = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 
         while (q.Count != 0)
         {
             Ele e = q.Dequeue();
             if (e.x != -1) // you can use count while loop here instead of tombstone method.
             {
-                for(int i=0;i<d.GetLength(0);i++)
+                for (int i = 0; i < d.GetLength(0); i++)
                 {
-                    if(isValid(e.x+d[i,0], e.y+d[i,1], m))
+                    if (isValid(e.x + d[i, 0], e.y + d[i, 1], m))
                     {
-                        m[e.x+d[i,0], e.y+d[i,1]] = 2;
-                        q.Enqueue(new Ele(e.x+d[i,0], e.y+d[i,1]));
+                        m[e.x + d[i, 0], e.y + d[i, 1]] = 2;
+                        q.Enqueue(new Ele(e.x + d[i, 0], e.y + d[i, 1]));
                     }
                 }
-
-                // if (isValid(e.x + 1, e.y, m))
-                // {
-                //     m[e.x + 1, e.y] = 2;
-                //     q.Enqueue(new Ele(e.x + 1, e.y));
-                // }
-
-                // if (isValid(e.x, e.y + 1, m))
-                // {
-                //     m[e.x, e.y + 1] = 2;
-                //     q.Enqueue(new Ele(e.x, e.y + 1));
-                // }
-
-                // if (isValid(e.x - 1, e.y, m))
-                // {
-                //     m[e.x - 1, e.y] = 2;
-                //     q.Enqueue(new Ele(e.x - 1, e.y));
-                // }
-
-                // if (isValid(e.x, e.y - 1, m))
-                // {
-                //     m[e.x, e.y - 1] = 2;
-                //     q.Enqueue(new Ele(e.x, e.y - 1));
-                // }
             }
             else
             {
