@@ -29,7 +29,8 @@ class LRUCacheLib
             if (dict.Count >= capacity)
             {
                 // remove least used
-                int x = dll.Last();  // needs System.Linq
+                int x = dll.Last();  // needs System.Linq or use dll.Last.Value
+                //int x = dll.Last.Value;
                 dll.RemoveLast();
                 dict.Remove(x);
 
