@@ -3,7 +3,7 @@ using System.Linq;
 
 class Knapsack01
 {
-    public static void main(String[] args)
+    public static void Main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
 
@@ -12,8 +12,18 @@ class Knapsack01
         int W = 50;
         int n = val.Length;
 
+        int[,] table1 = new int[W + 1, n + 1];
+        for (int i = 0; i < table1.GetLength(0); i++)
+        {
+            for (int j = 0; j < table1.GetLength(1); j++)
+            {
+                table1[i, j] = -1;
+            }
+        }
+
         Console.WriteLine(knapSack(W, wt, val, n));
         Console.WriteLine("Recursive ans: " + knapSackR(W, wt, val, n));
+        Console.WriteLine("Recursive Mem ans: " + knapSackMem(W, wt, val, n, table1));
     }
     static int knapSack(int W, int[] wt, int[] val, int n)
     {
@@ -44,5 +54,25 @@ class Knapsack01
                        + knapSack(W - wt[n - 1], wt,
                                   val, n - 1),
                        knapSack(W, wt, val, n - 1));
+    }
+    static int knapSackMem(int W, int[] wt,
+                        int[] val, int n, int[,] sol)
+    {
+        if (sol[W, n] != -1)
+            return sol[W, n];
+
+        if (n == 0 || W == 0)
+            return 0;
+
+        if (wt[n - 1] > W)
+            sol[W, n] = knapSackMem(W, wt,
+                            val, n - 1, sol);
+        else
+            sol[W, n] = Math.Max(val[n - 1]
+                       + knapSackMem(W - wt[n - 1], wt,
+                                  val, n - 1, sol),
+                       knapSackMem(W, wt, val, n - 1, sol));
+
+        return sol[W, n];
     }
 }
