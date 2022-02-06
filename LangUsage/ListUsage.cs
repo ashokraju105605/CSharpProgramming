@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections; // non-generic version of Data structures.
+using System.Linq;
 class ListUsage
 {
     public static void main()
@@ -93,6 +94,13 @@ class ListUsage
             string yx = y + x;
             return yx.CompareTo(xy);
         }
+
+        //using System.Linq on Lists/Arrays
+        List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
+        Console.WriteLine(list.Max());
+        Console.WriteLine(list.Min());
+        Console.WriteLine(list.Sum());
+        Console.WriteLine(list.Average());
     }
 }
 

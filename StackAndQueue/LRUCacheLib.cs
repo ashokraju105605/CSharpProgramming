@@ -59,7 +59,7 @@ class LRUCacheLib
         else
             return -1;
     }
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         LRUCacheLib cache = new LRUCacheLib(2);

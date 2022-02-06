@@ -51,10 +51,11 @@ class SampleArrayOps
         Console.WriteLine(Array.BinarySearch(arrk, 2));
 
 
-
-        Console.WriteLine(arr.Max()); // using system.linq
+        // using System.Linq
+        Console.WriteLine(arr.Max());
         Console.WriteLine(arr.Min());
         Console.WriteLine(arr.Sum());
+        Console.WriteLine(arr.Average());
         Console.WriteLine();
 
         // FOR all Array Class methods, first parameter will be the arrary object.
