@@ -38,6 +38,9 @@ class BinaryTree
         int result = 0;
         tree.maxPathSum(root, ref result);
         Console.WriteLine("Max pathSum of the given binary tree is " + result);
+
+        Tuple<int, int> t = tree.maxPathSum1(root);
+        Console.WriteLine("Max pathSum of the given binary tree is " + t.Item1);
     }
     public int maxPathSum(Node r, ref int res)
     {
@@ -51,6 +54,21 @@ class BinaryTree
             int rightsum = maxPathSum(r.right, ref res);
             res = Math.Max(res, r.data + leftsum + rightsum);
             return r.data + Math.Max(leftsum, rightsum);
+        }
+    }
+
+    public Tuple<int, int> maxPathSum1(Node r)
+    {
+        if (r == null)
+            return Tuple.Create(0, 0);
+        else if (r.left == null && r.right == null)
+            return Tuple.Create(r.data, r.data);
+        else
+        {
+            Tuple<int, int> leftsum = maxPathSum1(r.left);
+            Tuple<int, int> rightsum = maxPathSum1(r.right);
+            int res = Math.Max(Math.Max(leftsum.Item1, rightsum.Item1), r.data + leftsum.Item2 + rightsum.Item2);
+            return Tuple.Create(res, r.data + Math.Max(leftsum.Item2, rightsum.Item2));
         }
     }
 }

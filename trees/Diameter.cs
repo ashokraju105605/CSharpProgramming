@@ -32,6 +32,9 @@ class Diameter
 
         Tuple<int> t = Dia(root);
         Console.WriteLine("Diameter is " + res);
+
+        Tuple<int, int> t1 = Dia1(root);
+        Console.WriteLine("Diameter is " + t1.Item1);
     }
     public static int diameter(Node r, ref int res)
     {
@@ -50,16 +53,31 @@ class Diameter
     }
     public static Tuple<int> Dia(Node r)
     {
-        if(r==null)
+        if (r == null)
             return Tuple.Create(0);
         else
         {
             Tuple<int> t, t1;
 
-                t = Dia(r.left);
-                t1 = Dia(r.right);
-            res = Math.Max(t.Item1+t1.Item1+1,res);
-            return Tuple.Create(Math.Max(t.Item1,t1.Item1)+1);
+            t = Dia(r.left);
+            t1 = Dia(r.right);
+            res = Math.Max(t.Item1 + t1.Item1 + 1, res);
+            return Tuple.Create(Math.Max(t.Item1, t1.Item1) + 1);
+        }
+    }
+
+    public static Tuple<int, int> Dia1(Node r)
+    {
+        if (r == null)
+            return Tuple.Create(0, 0);
+        else
+        {
+            Tuple<int, int> t, t1;
+
+            t = Dia1(r.left);
+            t1 = Dia1(r.right);
+            int dia = Math.Max(Math.Max(t.Item1, t1.Item1), t.Item2 + t1.Item2 + 1);
+            return Tuple.Create(dia, Math.Max(t.Item1, t1.Item1) + 1);
         }
     }
 }
