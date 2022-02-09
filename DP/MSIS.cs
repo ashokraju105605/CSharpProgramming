@@ -13,11 +13,7 @@ class MSIS
     }
     static int maxSumIS(int[] arr)
     {
-        int[] msis = new int[arr.Length];
-        for (int i = 0; i < arr.Length; i++)
-        {
-            msis[i] = arr[i];
-        }
+        int[] msis = arr.ToArray();
         //msis[0] = 0;
 
         for (int i = 1; i < arr.Length; i++) // can be started from 1

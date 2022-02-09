@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 class minDiffSubsets
 {
-    public static void mxain(String[] args)
+    public static void main(String[] args)
     {
         Console.WriteLine("Jai Shree Ram");
         int[] arr = { 3, 1, 4, 2, 2, 1 };
@@ -35,6 +35,10 @@ class minDiffSubsets
         Console.WriteLine("The minimum difference " +
                         "between 2 sets is " +
                         mindiff);
+
+        Console.WriteLine("The minimum difference " +
+        "between 2 sets using Recursion is " +
+        findMinRec(arr, arr.Length, 0, arr.Sum()));
     }
     //memoization method.
     // not able to get the memoization work.
@@ -86,5 +90,30 @@ class minDiffSubsets
         }
         return mindiff;
 
+    }
+
+    public static int findMinRec(int[] arr, int i,
+                             int sumCalculated,
+                             int sumTotal)
+    {
+        // If we have reached last element.
+        // Sum of one subset is sumCalculated,
+        // sum of other subset is sumTotal-
+        // sumCalculated. Return absolute
+        // difference of two sums.
+        if (i == 0)
+            return Math.Abs((sumTotal - sumCalculated)
+                            - sumCalculated);
+
+        // For every item arr[i], we have two choices
+        // (1) We do not include it first set
+        // (2) We include it in first set
+        // We return minimum of two choices
+        return Math.Min(
+            findMinRec(arr, i - 1,
+                       sumCalculated + arr[i - 1],
+                       sumTotal),
+            findMinRec(arr, i - 1, sumCalculated,
+                       sumTotal));
     }
 }

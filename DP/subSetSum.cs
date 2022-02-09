@@ -13,6 +13,11 @@ class subsetSum
         else
             Console.WriteLine("No subset exists with" +
                                         " given sum");
+
+        if (isSubsetSumRec(arr, arr.Length, sum) == true)
+            Console.WriteLine("Found a subset with given sum using Recursion");
+        else
+            Console.WriteLine("No subset with given sum");
     }
     static bool isSubsetSum(int[] arr, int sum)
     {
@@ -35,5 +40,20 @@ class subsetSum
             }
 
         return table[arr.Length % 2, sum];
+    }
+
+    static bool isSubsetSumRec(int[] set, int n, int sum)
+    {
+        // Base Cases
+        if (sum == 0)
+            return true;
+        if (n == 0)
+            return false;
+
+        if (set[n - 1] > sum)
+            return isSubsetSumRec(set, n - 1, sum);
+
+        return isSubsetSumRec(set, n - 1, sum)
+          || isSubsetSumRec(set, n - 1, sum - set[n - 1]);
     }
 }

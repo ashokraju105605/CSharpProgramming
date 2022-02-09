@@ -24,8 +24,7 @@ class maxLengthChain
     {
         int[] mcl = new int[arr.Length];
 
-        for (int i = 0; i < arr.Length; i++)
-            mcl[i] = 1;
+        Array.Fill(mcl, 1);
 
         for (int i = 0; i < arr.Length; i++)
         {

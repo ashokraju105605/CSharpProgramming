@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 class LISubSeq
 {
     public static void main(String[] args)
@@ -11,6 +12,9 @@ class LISubSeq
                       + "Increasing Subsequence is " + LongestIncreasingSubsequenceLength(A));
         Console.WriteLine("Length of Longest "
                       + "Increasing Subsequence is " + LongestIncreasingSubsequenceLength1(A));
+
+        Console.WriteLine("Length of Longest "
+        + "Increasing Subsequence Traditional is " + lis(A));
     }
     static int LongestIncreasingSubsequenceLength(int[] a)
     {
@@ -75,5 +79,23 @@ class LISubSeq
             }
         }
         return lis.Count; // as we need the number not the index.
+    }
+
+    static int lis(int[] arr)
+    {
+        int n = arr.Length;
+        int[] lis = new int[n];
+        int i, j;
+
+        Array.Fill(lis, 1);
+
+        /* Compute optimized LIS values in bottom up manner
+         */
+        for (i = 1; i < n; i++)
+            for (j = 0; j < i; j++)
+                if (arr[i] > arr[j] && lis[i] < lis[j] + 1)
+                    lis[i] = lis[j] + 1;
+
+        return lis.Max();
     }
 }
