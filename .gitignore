@@ -1,8 +1,8 @@
 *.dll
 *.pdb
 *.exe
-bin/
-obj/
+bin/*
+obj/*
 bin/Debug/netcoreapp3.1/Programming.dll
 bin/Debug/netcoreapp3.1/Programming.pdb
 bin/Debug/netcoreapp3.1/Programming.exe
@@ -12,4 +12,7 @@ obj/project.assets.json
 obj/Debug/netcoreapp3.1/Programming.csproj.AssemblyReference.cache
 obj/Debug/netcoreapp3.1/Programming.dll
 obj/Debug/netcoreapp3.1/Programming.exe
+obj/Debug/netcoreapp3.1/Programming.pdb
+obj/Debug/netcoreapp3.1/Programming.pdb
+obj/Debug/netcoreapp3.1/Programming.pdb
 obj/Debug/netcoreapp3.1/Programming.pdb
