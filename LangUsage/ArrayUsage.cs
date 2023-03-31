@@ -11,7 +11,7 @@ class SampleArrayOps
         // Array Initialization
         int[] arr = { 5, 32, 1, 7, 10, 50, 19, 21, 2 };
         int[] a1 = new int[5];
-        int[] a2 = new int[4] { 1, 2, 3, 4 };
+        int[] a2 = new int[4] { 1, 2, 3, 4 }; // not valid in java
         int[] val = new int[] { 60, 100, 120 };
 
         int[] temp = arr[2..5];
